@@ -108,8 +108,13 @@ let userData = {
 
 const playSong = (id) => {
   const song = userData?.songs.find((song) => song.id === id);
-  audio.src = song.src;
-  audio.title = song.title;
+  if (userData?.currentSong?.id == id) {
+    const isPlaying = playButton.classList.contains("playing");
+    if (isPlaying) return pauseSong();
+  } else {
+    audio.src = song.src;
+    audio.title = song.title;
+  }
 
   if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
     audio.currentTime = 0;
