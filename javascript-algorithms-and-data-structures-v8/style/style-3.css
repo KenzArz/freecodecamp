@@ -236,11 +236,11 @@ button:focus,
 
 #player-song-artist {
   color: var(--highlight-color);
-  font-size: 1.095rem;
+  font-size: 0.82rem;
 }
 
 #player-song-title {
-  font-size: 1.245rem;
+  font-size: 1.015rem;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
