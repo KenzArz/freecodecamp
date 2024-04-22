@@ -64,7 +64,6 @@ const editTask = (buttonEl) => {
   titleInput.value = currentTask.title;
   dateInput.value = currentTask.date;
   descriptionInput.value = currentTask.description;
-  console.log(titleInput.value);
   addOrUpdateTaskBtn.innerText = "Update Task";
   taskForm.classList.toggle("hidden");
 };
