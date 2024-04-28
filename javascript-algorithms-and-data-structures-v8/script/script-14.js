@@ -13,7 +13,7 @@ const checkPhoneNumber = ({ number }) => {
 	const message = `${style.replace(/([vi])/, (_match, str) =>
 		str.toUpperCase()
 	)}`;
-	resultsDiv.innerHTML += `<p class="${style}">${message} US number <strong>${number}</strong></p>`;
+	resultsDiv.innerHTML += `<p class="${style}">${message} US number: <strong>${number}</strong></p>`;
 };
 
 check.addEventListener("submit", e => {
