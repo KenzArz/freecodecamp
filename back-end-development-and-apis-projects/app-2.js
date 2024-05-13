@@ -10,10 +10,10 @@ app.get("/", (req, res) => {
 
 app.get("/api/whoami", (req, res) => {
 	const headers = req.headers;
-	const ipadress = headers["x-forwarded-for"];
+	const ipaddress = headers["x-forwarded-for"].split(",")[0];
 	const languanges = headers["accept-language"];
 	const software = headers["user-agent"];
-	res.json({ ipadress, languanges, software });
+	res.json({ ipaddress, languanges, software });
 });
 
 app.listen(3000, () => {
