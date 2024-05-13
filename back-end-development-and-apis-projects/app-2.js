@@ -1,6 +1,8 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
+app.use(cors({ optionsSuccessStatus: 200 }));
 
 app.get("/", (req, res) => {
 	res.sendFile("index-2.html", {
@@ -9,11 +11,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/whoami", (req, res) => {
-	const headers = req.headers;
-	const ipaddress = headers["x-forwarded-for"].split(",")[0];
-	const languanges = headers["accept-language"];
-	const software = headers["user-agent"];
-	res.json({ ipaddress, languanges, software });
+	const ipaddress = req.headers["x-forwarded-for"].split(",")[0];
+	const language = req.headers["accept-language"];
+	const software = req.headers["user-agent"];
+	res.json({ ipaddress, language, software });
 });
 
 app.listen(3000, () => {
