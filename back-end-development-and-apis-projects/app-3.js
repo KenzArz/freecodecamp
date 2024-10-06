@@ -1,18 +1,10 @@
 import dns from "dns";
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-
-const app = express();
-app.use("/public", express.static(`${process.cwd()}/public`));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
+import { app, backEndProject } from "../index.js";
 
 const db = [];
 
-app.get("/", (req, res) => {
-	res.sendFile(process.cwd() + "/public/index-3.html");
+app.get("/shorturl", (req, res) => {
+	res.sendFile(backEndProject + "/views/index-3.html");
 });
 
 app.get("/api/shorturl/:id", (req, res) => {
@@ -44,8 +36,4 @@ app.post("/api/shorturl", (req, res) => {
 			db.push({ ...result, address });
 		}
 	});
-});
-
-app.listen(3000, () => {
-	console.log("active");
 });

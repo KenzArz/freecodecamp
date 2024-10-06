@@ -1,0 +1,40 @@
+body {
+	font-size: 16px;
+	text-align: center;
+	line-height: 1.4em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #1e1e24;
+	color: #fff;
+}
+
+main {
+	padding: 0;
+	margin-top: 40px;
+}
+
+h3 {
+	margin-top: 30px;
+}
+
+a {
+	color: #2574a9;
+}
+
+form {
+	margin: 10px auto;
+	padding: 20px;
+	max-width: 600px;
+}
+
+label {
+	margin-right: 10px;
+}
+
+input {
+	padding: 5px;
+}
+
+input[type="text"] {
+	width: 220px;
+	text-align: center;
+}

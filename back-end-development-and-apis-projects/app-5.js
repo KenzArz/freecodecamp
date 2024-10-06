@@ -1,17 +1,7 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import multer from "multer";
-dotenv.config();
+import { app, upload, backEndProject } from "../index.js";
 
-const app = express();
-const upload = multer({ dest: "uploads/" });
-
-app.use(cors());
-app.use("/public", express.static(process.cwd() + "/public"));
-
-app.get("/", function (req, res) {
-	res.sendFile(process.cwd() + "/public/index-5.html");
+app.get("/metadata", function (req, res) {
+	res.sendFile(backEndProject + "/views/index-5.html");
 });
 
 const cpUpload = upload.fields([{ name: "upfile", maxCount: 1 }]);
@@ -24,9 +14,4 @@ app.post("/api/fileanalyse", cpUpload, (req, res) => {
 		type: files.mimetype,
 		size: files.size,
 	});
-});
-
-const port = process.env.PORT || 3000;
-app.listen(port, function () {
-	console.log("Your app is listening on port " + port);
 });

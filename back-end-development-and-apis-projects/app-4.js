@@ -1,20 +1,9 @@
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
+import { app, backEndProject } from "../index.js";
 
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const app = express();
-
-app.use(cors());
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
 const db = [];
 
-app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/public/index-4.html");
+app.get("/exercise", (req, res) => {
+	res.sendFile(backEndProject + "/views/index-4.html");
 });
 
 app.get("/api/users", (req, res) => {
@@ -41,7 +30,7 @@ app.post("/api/users", (req, res) => {
 	db.push(result);
 });
 
-app.get("/api/users/:_id/logs?", (req, res) => {
+app.get("/api/users/:_id/logs", (req, res) => {
 	const _id = req.params._id;
 	const { from, to, limit } = req.query;
 	const userById = db.find(user => user._id === _id);
@@ -101,10 +90,6 @@ app.post("/api/users/:_id/exercises", (req, res) => {
 
 	if (userById.log) return userById.log.push(exerciseInfo);
 	userById.log = [exerciseInfo];
-});
-
-app.listen(3000, () => {
-	console.log("Your app is listening on port ", 3000);
 });
 
 const createRandomId = () => {

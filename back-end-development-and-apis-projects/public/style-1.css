@@ -1,0 +1,28 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #1e1e24;
+	color: #fff;
+	font-size: 20px;
+}
+
+hr {
+	margin: 30px;
+}
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	color: rgba(249, 250, 250, 0.979);
+	cursor: pointer;
+}
+li {
+	margin: 15px;
+}
